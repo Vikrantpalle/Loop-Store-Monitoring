@@ -206,7 +206,7 @@ def generate_report(report_id):
         report_id (str): unique id to identify the report
     """
     cur = db.cursor()
-    cur.execute("select store_id from storetimezone limit 10;")
+    cur.execute("select store_id from storetimezone;")
     store_ids = cur.fetchall()
     with open(os.path.join(CSV_OUTPUT_DIR,f"{report_id}.csv"),'w',encoding='UTF-8',newline='') as f:
         writer = csv.writer(f)
