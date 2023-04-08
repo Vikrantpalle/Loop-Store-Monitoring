@@ -99,6 +99,7 @@ def transform_poll_data(pollData, start, end, to_tz):
         list: sorted poll data in the timerange (start,end) converted to local time
     """
     # initially the store is assume to be inactive until next poll
+    # ! irregularities in downtime could appear due to this assumption
     startPoll = ('inactive',start)     
     endPoll = ('inactive',end) 
     tPollData = pollData[bisect.bisect_left(pollData,start,key=lambda x: x[1]):]
